@@ -22,8 +22,17 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    /* Add a fallback background gradient for mobile */
-    background: linear-gradient(135deg, #2c3e50 0%, #4a69bd 100%);
+    /* Enhanced fallback background that will work on all devices */
+    background: linear-gradient(135deg, #442c50 0%, #4a69bd 50%, #ff5757 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+}
+
+/* Add a better animation for the background gradient */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 #bg-video {
@@ -44,8 +53,35 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: none;
+    background: none; /* Ensure no overlay is obscuring the background */
     z-index: 1;
+}
+
+/* Force the background on mobile - put this at the bottom of the file to ensure it overrides everything */
+@media (max-width: 768px) {
+    body, html {
+        background: none;
+    }
+    
+    .video-background {
+        background: none;
+    }
+    
+    #bg-video {
+        display: block !important; /* Force show video on mobile */
+    }
+    
+    .video-overlay {
+        background: none;
+    }
+    
+    .image-overlay {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    
+    .blurred-image-card:hover .image-overlay {
+        background: rgba(0, 0, 0, 0.6);
+    }
 }
 
 /* Add a subtle animation to the background */
@@ -221,18 +257,13 @@ h2 {
 
 /* Banner Section - Custom Tattoed Kate Theme */
 .banner {
-    text-align: center;
-    padding: 80px 20px;
-    background: rgba(255, 255, 255, 0.25);
-    color: #333;
-    margin-bottom: 30px;
+    padding: 40px 30px;
+    border-radius: 16px;
     position: relative;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     overflow: hidden;
-    border-radius: 24px;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: none;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .banner::before {
@@ -267,6 +298,7 @@ h2 {
     margin: 0 auto;
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 .animated-text {
