@@ -609,16 +609,19 @@ h2 {
 
 .blurred-image-card {
     position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: block;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
     height: 250px;
 }
 
 .blurred-image-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .blurred-image {
@@ -655,7 +658,16 @@ h2 {
 }
 
 .blurred-image-card:hover .image-overlay {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.blurred-image-card:hover .fa-lock {
+    color: #ff5757;
+    transform: scale(1.1);
+}
+
+.blurred-image-card:hover p {
+    color: #ff5757;
 }
 
 .blurred-image-card:nth-child(1) .blurred-image {
