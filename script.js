@@ -14,13 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add smooth scrolling for all CTA buttons
-    const ctaButtons = document.querySelectorAll('.cta-button');
-    ctaButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            if (this.classList.contains('primary') || this.classList.contains('secondary')) {
-                window.open('https://onlyfans.com/tattoedkate', '_blank');
-            }
+    // Add smooth scrolling for OnlyFans CTA buttons only
+    const onlyfansButtons = document.querySelectorAll('.onlyfans-btn');
+    onlyfansButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://onlyfans.com/tattoedkate', '_blank');
         });
     });
 
