@@ -18,11 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const ctaButtons = document.querySelectorAll('.cta-button');
     ctaButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // In a real application, this would navigate to a subscription page or form
-            if (this.classList.contains('primary')) {
-                window.open('https://onlyfans.com/username', '_blank');
-            } else if (this.classList.contains('secondary')) {
-                window.open('https://onlyfans.com/username', '_blank');
+            if (this.classList.contains('primary') || this.classList.contains('secondary')) {
+                window.open('https://onlyfans.com/tattoedkate', '_blank');
             }
         });
     });
